@@ -1,0 +1,12 @@
+<header class="header">
+  <div class="header__brand">
+    <h1>WhatsAngular</h1>
+  </div>
+
+  @if (authService.currentUser(); as user) {
+    <div class="header__user">
+      <span>Hola, {{ user.name }}</span>
+      <button type="button" (click)="onLogout()">Cerrar sesión</button>
+    </div>
+  }
+</header>

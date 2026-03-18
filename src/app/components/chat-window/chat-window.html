@@ -1,0 +1,46 @@
+<div class="chat-window">
+  @if (chat) {
+    <div class="chat-window__header">
+      <div class="chat-window__user">
+        <div class="chat-window__avatar">
+          @if (chat.avatarUrl) {
+            <img [src]="chat!.avatarUrl" [alt]="'Avatar de ' + chat!.name" />
+          } @else {
+            {{ chat.avatar }}
+          }
+        </div>
+          <h3>{{ chat.name }}</h3>
+          <p>{{ chat.lastSeen }}</p>
+      </div>
+    </div>
+    <div class="chat-window__messages" #messagesContainer>
+      @if (chat.messages.length > 0) {
+        @for (message of chat.messages; track message.id) {
+          <div
+            class="message"
+            [class.message--me]="message.sender === 'me'"
+            [class.message--contact]="message.sender === 'contact'"
+          >
+            <div class="message__bubble">
+              <p>{{ message.text }}</p>
+              <span>{{ message.timestamp }}</span>
+            </div>
+          </div>
+        }
+      } @else {
+        <div class="chat-window__empty">
+          <p>Este chat todavía no tiene mensajes.</p>
+        </div>
+      }
+    </div>
+
+    <app-message-form
+      (messageSubmitted)="sendMessage.emit($event)"
+    ></app-message-form>
+  } @else {
+    <div class="chat-window__placeholder">
+      <h3>Selecciona un chat</h3>
+      <p>Elige una conversación del panel izquierdo para comenzar.</p>
+    </div>
+  }
+</div>

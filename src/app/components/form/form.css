@@ -1,0 +1,64 @@
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 700;
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
+
+.form-group input {
+  padding: 14px 16px;
+  border: 1px solid rgba(217, 4, 77, 0.14);
+  border-radius: 16px;
+  font-size: 0.96rem;
+  outline: none;
+  background: rgba(255, 255, 255, 0.95);
+  transition: var(--transition);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.02);
+}
+
+.form-group input::placeholder {
+  color: #b294a4;
+}
+
+.form-group input:focus {
+  border-color: var(--brand-2);
+  box-shadow: 0 0 0 4px rgba(255, 10, 84, 0.10);
+  transform: translateY(-1px);
+}
+
+.error {
+  color: var(--brand-3);
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+button {
+  border: none;
+  padding: 14px 16px;
+  border-radius: 16px;
+  cursor: pointer;
+  background: var(--gradient-main);
+  color: var(--white);
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  box-shadow: 0 10px 20px rgba(217, 4, 77, 0.22);
+  transition: var(--transition);
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 16px 30px rgba(217, 4, 77, 0.28);
+}

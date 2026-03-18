@@ -1,0 +1,20 @@
+<section class="login-page">
+  <div class="login-card">
+    <div class="login-card__content">
+      <div class="login-card__left">
+        <h2>Iniciar sesión</h2>
+        <p>Ingresa tus datos para acceder al chat y gestionar tus conversaciones.</p>
+
+        <app-form (loginSubmitted)="handleLogin($event)"></app-form>
+      </div>
+
+      <div class="login-card__right">
+        <img
+          src="/marketing-login.png"
+          alt="Acceso al chat"
+          class="login-card__image"
+        />
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,23 +1,20 @@
 .chat-layout {
-  height: calc(100vh - 132px);
+  height: calc(100vh - 140px);
   display: grid;
   grid-template-columns: 340px 1fr;
   background:
     radial-gradient(circle at top right, rgba(255, 10, 84, 0.10), transparent 24%),
     linear-gradient(180deg, #fff8fb 0%, #fff1f6 100%);
-  overflow: hidden;
 }
 
 .chat-layout__sidebar {
   min-height: 0;
-  height: 100%;
   overflow: hidden;
   backdrop-filter: blur(6px);
 }
 
 .chat-layout__content {
   min-height: 0;
-  height: 100%;
   overflow: hidden;
   position: relative;
 }
@@ -73,21 +70,17 @@
 
 @media (max-width: 768px) {
   .chat-layout {
-    height: auto;
-    min-height: calc(100vh - 132px);
     grid-template-columns: 1fr;
-    overflow: visible;
   }
 
   .chat-layout__sidebar {
-    min-height: 260px;
-    height: auto;
+    height: 300px;
+    min-height: 0;
     border-bottom: 1px solid rgba(217, 4, 77, 0.10);
   }
 
   .chat-layout__content {
     min-height: 420px;
-    height: auto;
   }
 
   .chat-layout__content::before {

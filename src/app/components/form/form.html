@@ -1,0 +1,35 @@
+<form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="name">Nombre</label>
+    <input id="name" type="text" formControlName="name" placeholder="Ingresa tu nombre" />
+
+    @if (nameControl?.invalid && nameControl?.touched) {
+      <small class="error">
+        @if (nameControl?.errors?.['required']) {
+          El nombre es obligatorio.
+        }
+        @if (nameControl?.errors?.['minlength']) {
+          El nombre debe tener al menos 3 caracteres.
+        }
+      </small>
+    }
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input id="email" type="email" formControlName="email" placeholder="ejemplo@email.com" />
+
+    @if (emailControl?.invalid && emailControl?.touched) {
+      <small class="error">
+        @if (emailControl?.errors?.['required']) {
+          El email es obligatorio.
+        }
+        @if (emailControl?.errors?.['email']) {
+          Debes ingresar un email válido.
+        }
+      </small>
+    }
+  </div>
+
+  <button type="submit">Ingresar</button>
+</form>

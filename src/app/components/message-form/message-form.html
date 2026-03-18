@@ -1,0 +1,22 @@
+<form class="message-form" [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+  <div class="message-form__group">
+    <input
+      type="text"
+      formControlName="text"
+      placeholder="Escribe un mensaje..."
+    />
+
+    <button type="submit">Enviar</button>
+  </div>
+
+  @if (textControl?.invalid && textControl?.touched) {
+    <small class="error">
+      @if (textControl?.errors?.['required']) {
+        El mensaje no puede estar vacío.
+      }
+      @if (textControl?.errors?.['maxlength']) {
+        El mensaje no puede superar los 250 caracteres.
+      }
+    </small>
+  }
+</form>

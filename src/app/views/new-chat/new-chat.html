@@ -1,0 +1,21 @@
+<app-header></app-header>
+
+<main class="new-chat-page">
+  <section class="new-chat-card">
+    <div class="new-chat-card__top">
+      <h2>Nuevo chat</h2>
+      <button type="button" class="back-button" (click)="goBack()">
+        Volver
+      </button>
+    </div>
+
+    <p>Crea una nueva conversación para comenzar a enviar mensajes.</p>
+
+    <app-new-chat-form
+      [duplicateError]="duplicateError"
+      (chatCreated)="onCreateChat($event)"
+    ></app-new-chat-form>
+  </section>
+</main>
+
+<app-footer></app-footer>

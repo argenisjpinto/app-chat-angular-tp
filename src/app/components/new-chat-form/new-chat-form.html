@@ -1,0 +1,30 @@
+<form class="new-chat-form" [formGroup]="newChatForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="name">Nombre del contacto</label>
+    <input
+      id="name"
+      type="text"
+      formControlName="name"
+      placeholder="Ej: Andrea"
+    />
+
+    @if (nameControl?.invalid && nameControl?.touched) {
+      <small class="error">
+        @if (nameControl?.errors?.['required']) {
+          El nombre es obligatorio.
+        }
+        @if (nameControl?.errors?.['minlength']) {
+          El nombre debe tener al menos 2 caracteres.
+        }
+        @if (nameControl?.errors?.['maxlength']) {
+          El nombre no puede superar los 30 caracteres.
+        }
+        @if (nameControl?.errors?.['duplicate']) {
+          Ya existe un chat con ese nombre.
+        }
+      </small>
+    }
+  </div>
+
+  <button type="submit">Crear chat</button>
+</form>

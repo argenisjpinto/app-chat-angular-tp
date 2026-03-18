@@ -1,0 +1,52 @@
+<div class="chat-list">
+  <div class="chat-list__header">
+    <h3>Chats</h3>
+    <a routerLink="/nuevo" class="new-chat-btn">Nuevo chat</a>
+  </div>
+
+  <div class="chat-list__search">
+    <input
+      type="text"
+      placeholder="Buscar chat por nombre..."
+      [ngModel]="searchTerm"
+      (ngModelChange)="onSearchChange($event)"
+    />
+  </div>
+
+  @if (chats.length > 0) {
+    <div class="chat-list__items">
+      @for (chat of chats; track chat.id) {
+        <a
+          class="chat-item"
+          [class.chat-item--active]="selectedChatId === chat.id"
+          [routerLink]="['/chats', chat.id]"
+        >
+          <div class="chat-item__avatar">
+            @if (chat.avatarUrl) {
+              <img [src]="chat.avatarUrl" [alt]="'Avatar de ' + chat.name" />
+            } @else {
+              {{ chat.avatar }}
+            }
+          </div>
+
+          <div class="chat-item__info">
+            <div class="chat-item__top">
+              <h4>{{ chat.name }}</h4>
+              <span
+                class="status"
+                [class.status--online]="chat.status === 'online'"
+                [class.status--offline]="chat.status === 'offline'"
+              >
+                {{ chat.status | chatStatus : chat.lastSeen }}
+              </span>
+            </div>
+
+            <p>{{ chat.lastMessage || 'Sin mensajes todavía' }}</p>
+          </div>
+        </a>
+      }
+    </div>
+  } @else {
+    <p class="empty-state">No se encontraron chats con ese nombre.</p>
+  }
+</div>
