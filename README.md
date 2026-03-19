@@ -187,6 +187,7 @@ chat-angular-final/
 │   ├── assets/
 │   │   ├── chat-interface.jpg
 │   │   ├── login-view.jpg
+│   │   ├── mobile-mode.jpg
 │   │   ├── new-chat-created.jpg
 │   │   ├── new-chat.jpg
 │   │   └── search-chat.jpg
@@ -223,6 +224,10 @@ chat-angular-final/
 ### 🟢 Chat creado
 
 ![Chat creado](src/assets/new-chat-created.jpg)
+
+### 📱 Modo mobile
+
+![Modo mobile](src/assets/mobile-mode.jpg)
 
 ---
 
